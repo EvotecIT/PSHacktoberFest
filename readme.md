@@ -1,5 +1,4 @@
 ﻿<p align="center">
-  <a href="https://dev.azure.com/evotecpl/PSHacktoberFest/_build/latest?definitionId=3"><img src="https://dev.azure.com/evotecpl/PSHacktoberFest/_apis/build/status/EvotecIT.PSHacktoberFest"></a>
   <a href="https://www.powershellgallery.com/packages/PSHacktoberFest"><img src="https://img.shields.io/powershellgallery/v/PSHacktoberFest.svg"></a>
   <a href="https://www.powershellgallery.com/packages/PSHacktoberFest"><img src="https://img.shields.io/powershellgallery/vpre/PSHacktoberFest.svg?label=powershell%20gallery%20preview&colorB=yellow"></a>
   <a href="https://github.com/EvotecIT/PSHacktoberFest"><img src="https://img.shields.io/github/license/EvotecIT/PSHacktoberFest.svg"></a>
