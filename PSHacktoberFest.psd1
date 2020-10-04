@@ -6,7 +6,7 @@
     CompatiblePSEditions = @('Desktop', 'Core')
     Copyright            = '(c) 2011 - 2020 Przemyslaw Klys @ Evotec. All rights reserved.'
     Description          = 'Module that helps maintaining hacktoberfest'
-    FunctionsToExport    = @('Add-HacktoberFest', 'Get-HacktoberFest')
+    FunctionsToExport    = @('Add-HacktoberFest', 'Get-HacktoberFest', 'Remove-HacktoberFest')
     GUID                 = '9672d48d-6b9b-4ae8-89ba-8f447c6a928b'
     ModuleVersion        = '0.0.1'
     PowerShellVersion    = '5.1'
