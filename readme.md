@@ -34,6 +34,13 @@ This means you need to tag your repository with `hacktoberfest` topic. As I am t
 
 For more details on `hacktoberfest` visit [HacktoberFest Digitalocean](https://hacktoberfest.digitalocean.com/)
 
+## ChangeLog
+
+- 0.0.2 - 2020.10.04
+  - Added `WhatIf` support so you can check how things look before applying
+- 0.0.1 - 2020.10.04
+  - First release
+
 ## Installing PSHacktoberFest
 
 ```powershell
@@ -75,7 +82,7 @@ If that's not enough you may need to play with permissions a bit. Since I use `P
 If you have only handful of repositories to manage you can do things manually or if you're really into PowerShell using this command
 
 ```powershell
-Add-HacktoberFest -OrganizationName 'EvotecIT' -RepositoryName 'PSBlackListChecker', 'PSWriteHTML' -Verbose
+Add-HacktoberFest -OrganizationName 'EvotecIT' -RepositoryName 'PSBlackListChecker', 'PSWriteHTML' -Verbose -WhatIf
 ```
 
 ### Tag all your repositories within organization
@@ -83,7 +90,7 @@ Add-HacktoberFest -OrganizationName 'EvotecIT' -RepositoryName 'PSBlackListCheck
 This will add `hacktoberfest` topic to all your repositories but it will skip `private` and `archived` repositories.
 
 ```powershell
-Add-HacktoberFest -OrganizationName 'EvotecIT' -Verbose
+Add-HacktoberFest -OrganizationName 'EvotecIT' -Verbose -WhatIf
 ```
 
 ### Tag all your repositories within organization with Exclusions
@@ -101,7 +108,7 @@ Add-HacktoberFest -OrganizationName 'EvotecIT' -ExcludeRepositoryName 'evotecit.
 This will remove `hacktoberfest` topic from all your repositories.
 
 ```powershell
-Remove-HacktoberFest -OrganizationName 'EvotecIt' -Verbose
+Remove-HacktoberFest -OrganizationName 'EvotecIt' -Verbose -WhatIf
 ```
 
 ### Remove hacktoberfest topic from all private repositories
@@ -109,7 +116,7 @@ Remove-HacktoberFest -OrganizationName 'EvotecIt' -Verbose
 This will remove `hacktoberfest` topic from all your private repositories. I've made mistake where I've originally applied tag to everything. While not a big deal, I didn't want that. So here's a way to fix it.
 
 ```powershell
-Remove-HacktoberFest -OrganizationName 'EvotecIt' -SkipPublic -Verbose
+Remove-HacktoberFest -OrganizationName 'EvotecIt' -SkipPublic -Verbose -WhatIf
 ```
 
 ### Remove hacktoberfest topic from all archived repositories
@@ -117,7 +124,7 @@ Remove-HacktoberFest -OrganizationName 'EvotecIt' -SkipPublic -Verbose
 This will remove `hacktoberfest` topic from all your archived repositories. I've made mistake where I've originally applied tag to everything. While not a big deal, I didn't want that. So here's a way to fix it.
 
 ```powershell
-Remove-HacktoberFest -OrganizationName 'EvotecIt' -SkipNotArchived -Verbose
+Remove-HacktoberFest -OrganizationName 'EvotecIt' -SkipNotArchived -Verbose -WhatIf
 ```
 
 ### Remove hacktoberfest from only one repository
@@ -125,5 +132,5 @@ Remove-HacktoberFest -OrganizationName 'EvotecIt' -SkipNotArchived -Verbose
 This will remove `hacktoberfest` topic from number of your repositories.
 
 ```powershell
-Remove-HacktoberFest -OrganizationName 'EvotecIt' -RepositoryName 'evotecit.github.io' -Verbose
+Remove-HacktoberFest -OrganizationName 'EvotecIt' -RepositoryName 'evotecit.github.io' -Verbose -WhatIf
 ```

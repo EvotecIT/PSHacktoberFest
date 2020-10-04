@@ -1,5 +1,5 @@
 ﻿function Remove-HacktoberFest {
-    [cmdletBinding()]
+    [cmdletBinding(SupportsShouldProcess)]
     param(
         [parameter(Mandatory)][string] $OrganizationName,
         [Array] $RepositoryName,
@@ -35,6 +35,7 @@
             if ($RepositoryCache[$FullName]) {
                 if ($RepositoryCache[$FullName].topics -contains 'hacktoberfest') {
                     Write-Verbose "Remove-HacktoberFest - $($Repository.full_name) removing hacktoberfest from topics of repository"
+                    $CurrentTopics = $RepositoryCache[$FullName].topics
                     $Topics = @(
                         foreach ($Topic in $RepositoryCache[$FullName].topics) {
                             if ($Topic -ne 'hacktoberfest') {
@@ -43,9 +44,13 @@
                         }
                     )
                     if ($Topics.Count -eq 0) {
-                        Set-GitHubRepositoryTopic -RepositoryName $Repository.Name -OwnerName $OrganizationName -Clear
+                        if ($PSCmdlet.ShouldProcess($Repository.full_name, "Clearning current topics: ($($CurrentTopics -join ',')) count: ($($CurrentTopics.Count)) to nothing!")) {
+                            Set-GitHubRepositoryTopic -RepositoryName $Repository.Name -OwnerName $OrganizationName -Clear
+                        }
                     } else {
-                        Set-GitHubRepositoryTopic -RepositoryName $Repository.Name -OwnerName $OrganizationName -Topic $Topics
+                        if ($PSCmdlet.ShouldProcess($Repository.full_name, "Changing current topics: ($($CurrentTopics -join ',')) count: ($($CurrentTopics.Count)) to topics: ($($Topics -join ',')) count: $($Topics.Count)")) {
+                            Set-GitHubRepositoryTopic -RepositoryName $Repository.Name -OwnerName $OrganizationName -Topic $Topics
+                        }
                     }
                 } else {
                     Write-Warning "Remove-HacktoberFest - $($Repository.full_name) doesn't have any hacktoberfest topic. Skipping"

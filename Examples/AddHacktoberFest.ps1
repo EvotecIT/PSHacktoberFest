@@ -1,10 +1,10 @@
 ﻿Import-Module $PSScriptRoot\..\PSHacktoberFest.psd1 -Force
 
 # Add to only chosen repositories
-Add-HacktoberFest -OrganizationName 'EvotecIT' -RepositoryName 'PSBlackListChecker', 'PSWriteHTML' -Verbose
+Add-HacktoberFest -OrganizationName 'EvotecIT' -RepositoryName 'PSBlackListChecker', 'PSWriteHTML' -Verbose  -WhatIf
 
 # Tag all your repositories within organization, it skips Private/Archived by default
-Add-HacktoberFest -OrganizationName 'EvotecIT' -Verbose
+Add-HacktoberFest -OrganizationName 'EvotecIT' -Verbose  -WhatIf
 
 # Tag all your repositories within organization, it skips Private/Archived by default, excluding the ones you don't want
-Add-HacktoberFest -OrganizationName 'EvotecIT' -ExcludeRepositoryName 'evotecit.github.io' -Verbose
+Add-HacktoberFest -OrganizationName 'EvotecIT' -ExcludeRepositoryName 'evotecit.github.io' -Verbose -WhatIf
