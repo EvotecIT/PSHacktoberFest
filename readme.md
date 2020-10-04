@@ -134,3 +134,45 @@ This will remove `hacktoberfest` topic from number of your repositories.
 ```powershell
 Remove-HacktoberFest -OrganizationName 'EvotecIt' -RepositoryName 'evotecit.github.io' -Verbose -WhatIf
 ```
+
+## Adding HacktoberFest Labels
+
+Following commands allow you to easily add one or two hacktoberfest labels
+
+### Add label to only chosen repositories
+
+```powershell
+Add-HacktoberFestLabel -OrganizationName 'EvotecIT' -RepositoryName 'PSBlackListChecker', 'PSWriteHTML' -Label hacktoberfest -Color Harlequin -Description 'This issue is good for hacktoberfest' -Verbose -WhatIf
+Add-HacktoberFestLabel -OrganizationName 'EvotecIT' -RepositoryName 'PSBlackListChecker', 'PSWriteHTML' -Label hacktoberfest-accepted -Color MountbattenPink -Description 'Accept for hacktoberfest, will merge later' -Verbose -WhatIf
+```
+
+### Add label to only one repository
+
+```powershell
+Add-HacktoberFestLabel -OrganizationName 'EvotecIT' -RepositoryName 'PSHacktoberFest' -Label hacktoberfest -Color Harlequin -Description 'This issue is good for hacktoberfest' -Verbose -WhatIf
+Add-HacktoberFestLabel -OrganizationName 'EvotecIT' -RepositoryName 'PSHacktoberFest' -Label hacktoberfest-accepted -Color MountbattenPink -Description 'Accept for hacktoberfest, will merge later' -Verbose -WhatIf
+```
+
+### Add label to all repositories
+
+```powershell
+Add-HacktoberFestLabel -OrganizationName 'EvotecIT' -Label 'hacktoberfest' -Color Harlequin -Description 'This issue is good for hacktoberfest' -Verbose -WhatIf
+Add-HacktoberFestLabel -OrganizationName 'EvotecIT' -Label 'hacktoberfest-accepted'-Color MountbattenPink -Description 'Accept for hacktoberfest, will merge later' -Verbose -WhatIf
+```
+
+### Removing HacktoberFest Labels
+
+Following code removes label from one or multiple respositories
+
+### Remove labels per repository
+
+```powershell
+Remove-HacktoberFestLabel -OrganizationName 'EvotecIT' -RepositoryName 'PSHacktoberFest' -Label 'hacktoberfest' -Verbose -WhatIf
+Remove-HacktoberFestLabel -OrganizationName 'EvotecIT' -RepositoryName 'PSHacktoberFest' -Label 'hacktoberfest-accepted' -Verbose -WhatIf
+```
+
+### Remove labels in all repositories
+
+```powershell
+Remove-HacktoberFestLabel -OrganizationName 'EvotecIT' -Label 'hacktoberfest-accepted' -Verbose -WhatIf
+```
