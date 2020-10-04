@@ -20,6 +20,21 @@
 
 # PSHacktoberFest - PowerShell Module
 
+Hacktoberfest® is open to everyone in our global community. Whether you’re a developer, student learning to code, event host, or company of any size, you can help drive growth of open source and make positive contributions to an ever-growing community. All backgrounds and skill levels are encouraged to complete the challenge.
+
+- Hacktoberfest is a celebration open to everyone in our global community.
+- Pull requests can be made in any GitHub-hosted repositories/projects.
+- You can sign up anytime between October 1 and October 31.
+
+HacktoberFest in 2020 is opt-in only:
+
+- <https://twitter.com/hacktoberfest/status/1312221208667185153> - We’re making Hacktoberfest opt-in only for projects – which maintainers can do simply by adding the `hacktoberfest` topic to a repository! Thanks for your patience as we work on continually improving the Hacktoberfest experience.
+- <https://twitter.com/digitalocean/status/1312220884665536512> - We heard you & made the biggest update yet. @Hacktoberfest 2020 is officially opt-in only for projects & maintainers! We’re excited to introduce these new measures to increase quality contributions & can’t wait to see what you build.
+
+This means you need to tag your repository with `hacktoberfest` topic. As I am too lazy to do any of that (I do own 50+ repositories) I made little PowerShell module that does this for me.
+
+For more details on `hacktoberfest` visit [HacktoberFest Digitalocean](https://hacktoberfest.digitalocean.com/)
+
 ## Installing PSHacktoberFest
 
 ```powershell
@@ -45,12 +60,14 @@ Set-GitHubAuthentication
 
 I am not 100% sure which scopes are needed to manage topics for repositories
 
-- [x] repo Full control of private repositories
-  - [ ]  repo:status Access commit status
-  - [ ]  repo_deployment Access deployment status
-  - [x]  public_repo Access public repositories
-  - [ ]  repo:invite Access repository invitations
-  - [ ]  security_events Read and write security events
+- [x] repo - Full control of private repositories
+  - [ ]  repo:status - Access commit status
+  - [ ]  repo_deployment - Access deployment status
+  - [x]  public_repo - Access public repositories
+  - [ ]  repo:invite - Access repository invitations
+  - [ ]  security_events - Read and write security events
+
+If that's not enough you may need to play with permissions a bit. Since I use `PowerShellGitHub` for other stuff I have almost everything checked.
 
 ## Adding hacktoberfest
 
@@ -66,6 +83,12 @@ This will add `hacktoberfest` topic to all your repositories but it will skip `p
 
 ```powershell
 Add-HacktoberFest -OrganizationName 'EvotecIT' -Verbose
+```
+
+### Tag all your repositories within organization, it skips Private/Archived by default, excluding the ones you don't want
+
+```powershell
+Add-HacktoberFest -OrganizationName 'EvotecIT' -ExcludeRepositoryName 'evotecit.github.io'
 ```
 
 ## Removing hacktoberfest

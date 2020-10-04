@@ -8,8 +8,12 @@
     Begin {
         if ($RepositoryName.Count -eq 0 -or $RepositoryName.Count -gt 1) {
             $Repositories = Get-GitHubRepository -OrganizationName $OrganizationName
-            if ($RepositoryName) {
+            if ($RepositoryName -and $ExcludeRepositoryName) {
                 $Repositories = $Repositories | Where-Object { $RepositoryName -contains $_.Name -and $ExcludeRepositoryName -notcontains $_.Name }
+            } elseif ($RepositoryName) {
+                $Repositories = $Repositories | Where-Object { $RepositoryName -contains $_.Name }
+            } elseif ($ExcludeRepositoryName) {
+                $Repositories = $Repositories | Where-Object { $ExcludeRepositoryName -notcontains $_.Name }
             }
         } else {
             $Repositories = Get-GitHubRepository -OwnerName $OrganizationName -RepositoryName $RepositoryName[0]
