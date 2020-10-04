@@ -95,6 +95,16 @@ This will add `hacktoberfest` topic to all your repositories but it will skip `p
 Add-HacktoberFest -OrganizationName 'EvotecIT' -Verbose -WhatIf
 ```
 
+Output:
+
+```log
+VERBOSE: Add-HacktoberFest - EvotecIT/evotecit.github.io adding hacktoberfest to topics of repository
+What if: Performing the operation "Changing current topics: () count: (0) to topics: (hacktoberfest) count: 1" on target "EvotecIT/evotecit.github.io".
+WARNING: Add-HacktoberFest - EvotecIT/PowerShellManager is already part of hacktoberfest. Skipping
+WARNING: Add-HacktoberFest - EvotecIT/PSHomeBridge is not public (visibility: private). Skipping
+WARNING: Add-HacktoberFest - EvotecIT/PSHacktoberFest is already part of hacktoberfest. Skipping
+```
+
 ### Tag all your repositories within organization with Exclusions
 
 This will add `hacktoberfest` topic to all your repositories but it will skip `private` and `archived` repositories, but you can also exclude repositories by name.
@@ -137,6 +147,27 @@ This will remove `hacktoberfest` topic from number of your repositories.
 Remove-HacktoberFest -OrganizationName 'EvotecIt' -RepositoryName 'evotecit.github.io' -Verbose -WhatIf
 ```
 
+Output
+
+```log
+WARNING: Remove-HacktoberFest - EvotecIT/PSFilePermissions doesn't have any hacktoberfest topic. Skipping
+VERBOSE: Remove-HacktoberFest - EvotecIT/PSWriteColor removing hacktoberfest from topics of repository
+What if: Performing the operation "Changing current topics: (color,hacktoberfest,powershell,wrapper,write-color,write-host,write-output) count: (7) to topics: (color,powershell,wrapper,write-color,write-host,write-output) count: 6" on target "EvotecIT/PSWriteColor".
+VERBOSE: Remove-HacktoberFest - EvotecIT/PSEventViewer removing hacktoberfest from topics of repository
+What if: Performing the operation "Changing current topics: (activedirectory,events,hacktoberfest,monitoring,powershell,viewer,windows,wrapper) count: (8) to topics: (activedirectory,events,monitoring,powershell,viewer,windows,wrapper) count: 7" on target "EvotecIT/PSEventViewer".
+VERBOSE: Remove-HacktoberFest - EvotecIT/PSBlackListChecker removing hacktoberfest from topics of repository
+What if: Performing the operation "Changing current topics: (blacklist,discord,exchange,hacktoberfest,microsoft-teams,monitoring,powershell,powershell-module,slack,verify) count: (10) to topics: (blacklist,discord,exchange,microsoft-teams,monitoring,powershell,powershell-module,slack,verify) count: 9" on target "EvotecIT/PSBlackListChecker".
+VERBOSE: Remove-HacktoberFest - EvotecIT/PSPasswordExpiryNotifications removing hacktoberfest from topics of repository
+What if: Performing the operation "Changing current topics: (active-directory,hacktoberfest,html,powershell,powershell-module,scheduling-password-notifications) count: (6) to topics: (active-directory,html,powershell,powershell-module,scheduling-password-notifications) count: 5" on target "EvotecIT/PSPasswordExpiryNotifications".
+VERBOSE: Remove-HacktoberFest - EvotecIT/PSWinReporting removing hacktoberfest from topics of repository
+What if: Performing the operation "Changing current topics: (activedirectory,hacktoberfest,powershell,powershell-module,reporting,windows) count: (6) to topics: (activedirectory,powershell,powershell-module,reporting,windows) count: 5" on target "EvotecIT/PSWinReporting".
+VERBOSE: Remove-HacktoberFest - EvotecIT/PSWindowsUpdates removing hacktoberfest from topics of repository
+What if: Performing the operation "Clearning current topics: (hacktoberfest) count: (1) to nothing!" on target "EvotecIT/PSWindowsUpdates".
+WARNING: Remove-HacktoberFest - EvotecIT/PSManageService doesn't have any hacktoberfest topic. Skipping
+VERBOSE: Remove-HacktoberFest - EvotecIT/PSPulsewayManager removing hacktoberfest from topics of repository
+What if: Performing the operation "Changing current topics: (hacktoberfest,powershell,pulseway) count: (3) to topics: (powershell,pulseway) count: 2" on target "EvotecIT/PSPulsewayManager".
+```
+
 ## Adding HacktoberFest Labels
 
 Following commands allow you to easily add one or two hacktoberfest labels
@@ -160,6 +191,24 @@ Add-HacktoberFestLabel -OrganizationName 'EvotecIT' -RepositoryName 'PSHacktober
 ```powershell
 Add-HacktoberFestLabel -OrganizationName 'EvotecIT' -Label 'hacktoberfest' -Color Harlequin -Description 'This issue is good for hacktoberfest' -Verbose -WhatIf
 Add-HacktoberFestLabel -OrganizationName 'EvotecIT' -Label 'hacktoberfest-accepted'-Color MountbattenPink -Description 'Accept for hacktoberfest, will merge later' -Verbose -WhatIf
+```
+
+This is how it looks like:
+
+```log
+WARNING: Add-HacktoberFestLabel - EvotecIT/PSFilePermissions is archived. Skipping
+What if: Performing the operation "Adding label hacktoberfest to other labels (bug,duplicate,enhancement,good first issue,help wanted,invalid,question,wontfix) count: 8" on target "EvotecIT/PSWriteColor".
+What if: Performing the operation "Adding label hacktoberfest to other labels (bug,duplicate,enhancement,good first issue,help wanted,invalid,question,wontfix) count: 8" on target "EvotecIT/PSEventViewer".
+What if: Performing the operation "Adding label hacktoberfest to other labels (bug,duplicate,enhancement,good first issue,help wanted,invalid,question,wontfix) count: 8" on target "EvotecIT/PSBlackListChecker".
+What if: Performing the operation "Adding label hacktoberfest to other labels (bug,duplicate,enhancement,good first issue,help wanted,invalid,question,wontfix) count: 8" on target "EvotecIT/PSPasswordExpiryNotifications".
+What if: Performing the operation "Adding label hacktoberfest to other labels (bug,discussion,duplicate,enhancement,good first issue,help wanted,invalid,question,wontfix) count: 9" on target "EvotecIT/PSWinReporting".
+What if: Performing the operation "Adding label hacktoberfest to other labels (bug,duplicate,enhancement,good first issue,help wanted,invalid,question,wontfix) count: 8" on target "EvotecIT/PSWindowsUpdates".
+WARNING: Add-HacktoberFestLabel - EvotecIT/PSManageService is archived. Skipping
+What if: Performing the operation "Adding label hacktoberfest to other labels (bug,duplicate,enhancement,good first issue,help wanted,invalid,question,wontfix) count: 8" on target "EvotecIT/PSPulsewayManager".
+What if: Performing the operation "Adding label hacktoberfest to other labels (bug,duplicate,enhancement,good first issue,help wanted,invalid,question,wontfix) count: 8" on target "EvotecIT/PSPublishModule".
+What if: Performing the operation "Adding label hacktoberfest to other labels (bug,bug-in-dll-i-think,discussion,dll-doesnt-support-it,done,duplicate,enhancement,future,good first issue,help wanted,invalid,question,review waiting for author,up for grabs,wontfix) count: 15" on target "EvotecIT/PSWriteWord".
+What if: Performing the operation "Adding label hacktoberfest to other labels (bug,bug in external module,duplicate,enhancement,good first issue,help wanted,invalid,performance,question,wontfix,workaround) count: 11" on target "EvotecIT/PSWinDocumentation".
+What if: Performing the operation "Adding label hacktoberfest to other labels (bug,duplicate,enhancement,good first issue,help wanted,invalid,not possible,question,wontfix) count: 9" on target "EvotecIT/PSTeams".
 ```
 
 ### Removing HacktoberFest Labels
