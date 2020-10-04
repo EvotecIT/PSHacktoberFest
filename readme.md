@@ -36,6 +36,8 @@ For more details on `hacktoberfest` visit [HacktoberFest Digitalocean](https://h
 
 ## ChangeLog
 
+- 0.0.3 - 2020.10.04
+  - Added `Add-HacktoberFestLabel` and `Remove-HacktoberFestLabel`
 - 0.0.2 - 2020.10.04
   - Added `WhatIf` support so you can check how things look before applying
 - 0.0.1 - 2020.10.04
