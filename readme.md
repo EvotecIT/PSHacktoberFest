@@ -72,19 +72,23 @@ If that's not enough you may need to play with permissions a bit. Since I use `P
 
 ### Add to only chosen repositories
 
+If you have only handful of repositories to manage you can do things manually or if you're really into PowerShell using this command
+
 ```powershell
 Add-HacktoberFest -OrganizationName 'EvotecIT' -RepositoryName 'PSBlackListChecker', 'PSWriteHTML' -Verbose
 ```
 
 ### Tag all your repositories within organization
 
-This will add `hacktoberfest` topic to all your repositories but it will skip `private` and `archived` repositories
+This will add `hacktoberfest` topic to all your repositories but it will skip `private` and `archived` repositories.
 
 ```powershell
 Add-HacktoberFest -OrganizationName 'EvotecIT' -Verbose
 ```
 
-### Tag all your repositories within organization, it skips Private/Archived by default, excluding the ones you don't want
+### Tag all your repositories within organization with Exclusions
+
+This will add `hacktoberfest` topic to all your repositories but it will skip `private` and `archived` repositories, but you can also exclude repositories by name.
 
 ```powershell
 Add-HacktoberFest -OrganizationName 'EvotecIT' -ExcludeRepositoryName 'evotecit.github.io'
@@ -94,23 +98,31 @@ Add-HacktoberFest -OrganizationName 'EvotecIT' -ExcludeRepositoryName 'evotecit.
 
 ### Remove hacktoberfest from all repositories
 
+This will remove `hacktoberfest` topic from all your repositories.
+
 ```powershell
 Remove-HacktoberFest -OrganizationName 'EvotecIt' -Verbose
 ```
 
-### Remove hacktoberfest topic from all private repositories (I've added those by accident)
+### Remove hacktoberfest topic from all private repositories
+
+This will remove `hacktoberfest` topic from all your private repositories. I've made mistake where I've originally applied tag to everything. While not a big deal, I didn't want that. So here's a way to fix it.
 
 ```powershell
 Remove-HacktoberFest -OrganizationName 'EvotecIt' -SkipPublic -Verbose
 ```
 
-### Remove hacktoberfest topic from all archived repositories (I've added those by accident)
+### Remove hacktoberfest topic from all archived repositories
+
+This will remove `hacktoberfest` topic from all your archived repositories. I've made mistake where I've originally applied tag to everything. While not a big deal, I didn't want that. So here's a way to fix it.
 
 ```powershell
 Remove-HacktoberFest -OrganizationName 'EvotecIt' -SkipNotArchived -Verbose
 ```
 
 ### Remove hacktoberfest from only one repository
+
+This will remove `hacktoberfest` topic from number of your repositories.
 
 ```powershell
 Remove-HacktoberFest -OrganizationName 'EvotecIt' -RepositoryName 'evotecit.github.io' -Verbose
