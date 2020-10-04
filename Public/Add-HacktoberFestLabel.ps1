@@ -5,7 +5,8 @@
         [Array] $RepositoryName,
         [Array] $ExcludeRepositoryName,
         [alias('Label')][parameter(Mandatory)][validateSet('hacktoberfest', 'hacktoberfest-accepted')][string] $Name,
-        [string] $Color = 'Blue'
+        [string] $Color = 'Blue',
+        [string] $Description
     )
     Begin {
         if ($RepositoryName.Count -eq 0 -or $RepositoryName.Count -gt 1) {
@@ -48,7 +49,10 @@
                 if ($Labels.Name -notcontains $Name) {
                     $CurrentLabels = $Labels.Name
                     if ($PSCmdlet.ShouldProcess($Repository.full_name, "Adding label $Name to other labels ($($CurrentLabels -join ',')) count: $($CurrentLabels.Count)")) {
-                        $null = New-GitHubLabel -Label $Name -RepositoryName $Repository.Name -OwnerName $OrganizationName -Color $ColorToSubmit
+                        if ($Description -eq '') {
+                            $Description = $Name
+                        }
+                        $null = New-GitHubLabel -Label $Name -RepositoryName $Repository.Name -OwnerName $OrganizationName -Color $ColorToSubmit -Description $Description
                     }
                 } else {
                     Write-Warning "Add-HacktoberFestLabel - $($Repository.full_name) already has label $Name. Skipping."
